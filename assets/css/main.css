@@ -1,0 +1,219 @@
+@font-face {
+	font-family: "Outfit";
+	/**
+	 * the reason we use '../' to back up one folder is because
+	 * the static font file will not be found if the baseURL contains
+	 * a suffix route (eg. coolwebsite.random-domain.com/some-suffix).
+	 *
+	 * and if we used '/' we would end up with a baseURL without
+	 * suffix (and as such a 404 when asking for the font file)
+	 * (eg. coolwebsite.random-domain.com <-- the '/some-suffix' is missing)
+	 *
+	 * by backing up we make a relative folder url and simply remove
+	 * the 'css' folder this file is in from the routing.
+	 * (eg. it would end up being coolwebsite.random-domain.com/fonts/[...].woff)
+	 *
+	 * damn that's a long comment for such a little thing
+	 */
+	src: url('../fonts/Outfit/Outfit-VariableFont_wght.woff') format('woff');
+}
+
+@font-face {
+	font-family: "DM Serif Display";
+	src: url('../fonts/DM_Serif_Display/DMSerifDisplay-Regular.woff') format('woff');
+}
+
+:root {
+	color-scheme: light dark;
+	font-family: "Outfit", system-ui, Roboto, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+	background-color: var(--md-sys-color-surface);
+	color: var(--md-sys-color-on-surface);
+	font-size: 12pt;
+}
+
+body {
+	margin: 16pt auto 16pt auto;
+	max-width: 900px;
+	padding-left: 16pt;
+	padding-right: 16pt;
+}
+
+h1, h2, h3 {
+	font-family: "DM Serif Display";
+}
+
+.surface-container {
+	background-color: var(--md-sys-color-surface-container);
+	color: var(--md-sys-color-on-surface);
+}
+
+.container {
+	padding: 12pt;
+	border-radius: 16pt;
+}
+
+.icon {
+	margin: 8pt;
+	width: 32px;
+	height: 32px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	border-radius: 198pt;
+	transition: 200ms ease-out;
+}
+
+.icon:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.surface-variant {
+	color: var(--md-sys-color-on-surface-variant);
+}
+
+.centered {
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.font-sans {
+	font-family: "Outfit", system-ui, Roboto, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+.font-display {
+	font-family: "DM Serif Display", Cambria, Georgia, 'Times New Roman', serif;
+}
+
+.slide-in {
+	animation: slide-in 400ms ease-out 0ms 1 normal;
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translateY(32pt);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.primary-button {
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	fill: var(--md-sys-color-on-primary);
+	padding: 8pt;
+	border-radius: 999pt;
+	text-decoration: none;
+	display: inline-block;
+	width: fit-content;
+	height: fit-content;
+}
+
+.primary-icon {
+	fill: var(--md-sys-color-on-primary) ;
+}
+
+.surface-icon {
+	fill: var(--md-sys-color-on-surface) ;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 4pt;
+}
+
+.bar {
+	display: flex;
+	flex-direction: row;
+	gap: 4pt;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.primary {
+	background-color: var(--md-sys-color-primary);
+	color: var(--md-sys-color-on-primary);
+	border-radius: 8pt;
+	padding: 8pt;
+}
+
+.primary-container {
+	background-color: var(--md-sys-color-primary-container);
+	color: var(--md-sys-color-on-primary-container);
+	border-radius: 8pt;
+	padding: 8pt;
+}
+
+.text-sm {
+	font-size: 0.8rem;
+}
+
+.text-md {
+	font-size: 1.4rem;
+}
+
+.text-lg {
+	font-size: 2rem;
+}
+
+.text-bubble {
+	border-radius: 8pt;
+	border-end-start-radius: 0;
+}
+
+img.markdown-image {
+	display: inline-block;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 8pt;
+}
+
+.gallery {
+	flex-wrap: wrap;
+}
+
+.gallery-image {
+	transition: transform 200ms ease-out;
+	cursor: pointer;
+}
+
+.gallery-image:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 8pt 8pt color-mix(in srgb, var(--md-sys-color-scrim), transparent 80%);
+	z-index: 10;
+}
+
+.gallery dialog {
+	position: fixed;
+	background: color-mix(in srgb, var(--md-sys-color-scrim), transparent 40%);
+	backdrop-filter: blur(8px);
+	opacity: 0;
+	transition: opacity 300ms ease-out;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 8pt;
+	border: 0;
+	text-align: center;
+	width: calc(100% - 8pt * 2);
+	height: calc(100% - 8pt * 2);
+	z-index: 90;
+}
+
+.gallery dialog[open=""]{
+	opacity: 1;
+}
+
+.header-block {
+	margin-bottom: 4pt;
+}

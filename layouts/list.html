@@ -1,0 +1,19 @@
+{{ define "main" }}
+<a href="../" class="surface-icon icon">
+	{{ (resources.Get "/icons/arrow_back.svg").Content | safeHTML }}
+</a>
+<h1 class="font-display">
+	{{ .Title }}
+</h1>
+{{ .Content }}
+<div class="list">
+	{{ range .Pages }}
+	<div class="surface-container container">
+		<h1>{{ .Title }}</h1>
+		<a class="primary-button" href="{{ .Permalink }}">
+			check it out
+		</a>
+	</div>
+	{{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.LanguageCode }}">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="view-transition" content="same-origin" />
+		<title>{{- .Site.Title -}}</title>
+		{{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+		<link href="{{ $style.Permalink }}" rel="stylesheet">
+		{{ $style := resources.Get "css/colours.css" | resources.Minify | resources.Fingerprint }}
+		<link href="{{ $style.Permalink }}" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ absURL "favicon.ico" }}">
+		{{ partialCached "jslibs/turbo/script-src.html" "-" }}
+	</head>
+	<body>
+		{{ block "body" . }}
+			<div class="primary-container header-block">
+				<strong>{{ T "wip" }}</strong>
+			</div>
+			<header>
+				{{ partial "header.html" . }}
+			</header>
+			<main>
+				{{ block "main" . }} {{ end }}
+			</main>
+		{{ end }}
+	</body>
+</html>

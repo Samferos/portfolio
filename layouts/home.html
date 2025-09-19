@@ -1,0 +1,14 @@
+{{ define "main" }}
+	{{ .Content }}
+	<div class="list">
+		{{ range .Site.Sections }}
+			<a class="primary-button" href="{{ .RelPermalink }}">
+				{{ with .Section | T }}
+					{{ . }}
+				{{ else }}
+					{{ .LinkTitle }}
+				{{ end }}
+			</a>
+		{{ end }}
+	</div>
+{{ end }}

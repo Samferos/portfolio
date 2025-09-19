@@ -1,0 +1,35 @@
+{{- $u := urls.Parse (.Get "src") -}}
+{{- $src := $u.String -}}
+{{- if not $u.IsAbs -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path -}}
+  {{- with or (.Page.Resources.Get $path) (resources.Get $path) -}}
+    {{- $src = .RelPermalink -}}
+    {{- with $u.RawQuery -}}
+      {{- $src = printf "%s?%s" $src . -}}
+    {{- end -}}
+    {{- with $u.Fragment -}}
+      {{- $src = printf "%s#%s" $src . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{ $id := math.Rand | md5 }}
+
+<img id="{{ $id }}" src="{{ $src }}" width="{{ .Get "width" }}" height="{{ .Get "height" }}" class="markdown-image gallery-image" alt="{{ .Get "alt" }}">
+<dialog id="{{ $id }}-dialog">
+	<img src="{{ $src }}" class="markdown-image" alt="{{ .Get "alt" }}">
+</dialog>
+<script>
+	{ // block scope to not conflict with other gallery-displays variables.
+		const image = document.getElementById('{{ $id }}');
+		const dialog = document.getElementById('{{ $id }}-dialog');
+
+		image.addEventListener('click', () => {
+			dialog.toggleAttribute('open');
+		});
+
+		dialog.addEventListener('click', () => {
+			dialog.toggleAttribute('open');
+		});
+	}
+</script>

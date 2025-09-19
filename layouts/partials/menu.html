@@ -1,0 +1,12 @@
+{{- /*
+	This partial accepts a slice of maps containing the keys
+	"link" and "label" and displays a menu with links to
+	the labeled locations.
+	An optional "turbo" keyed item can be specified for links that
+	may require a full turbo page reload.
+*/ -}}
+<menu>
+	{{ range . }}
+	<li><a data-turbo="{{ or (try .turbo).Value "true" }}" href="{{ .link }}">{{ .label }}</a></li>
+	{{ end }}
+</menu>

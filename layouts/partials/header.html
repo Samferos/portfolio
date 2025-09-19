@@ -1,0 +1,35 @@
+<div class="surface-container container bar">
+	<div class="bar">
+		<img width="64" height="64" src="{{ (resources.Get "/images/profile_picture.svg").Permalink }}" alt="">
+		<span class="primary text-md text-bubble">
+			{{ with (T "header-greeting") }}
+				{{ . }}
+			{{ else }}
+			hi <br>
+			i'm samuel
+			{{ end }}
+		</span>
+		<div>
+		</div>
+	</div>
+	<div class="bar">
+		<a class="primary-button bar" href="https://github.com/Samferos">
+			<div class="primary-icon">
+			{{ (resources.Get "/icons/github-mark.svg").Content | safeHTML }}
+			</div>
+			<span>
+			Github
+			</span>
+		</a>
+		{{ $langs := slice }}
+		{{ range site.Languages }}
+			{{ $opts := dict "path" page.Path "lang" .Lang }}
+			{{/*
+				Here, we set "turbo" to false to reload the page and work around
+				firefox not detecting the page changing language.
+			*/}}
+			{{ $langs = $langs | append ( dict "link" (page.RelRef $opts) "label" .LanguageName "turbo" "false" ) }}
+		{{ end }}
+		{{ partial "menu.html" $langs }}
+	</div>
+</div>

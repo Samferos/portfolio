@@ -1,0 +1,18 @@
+{{ define "body" }}
+	<style>
+		/* avoid global body margin making page scrollable */
+		body {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	</style>
+	<div class="centered">
+		<img class="slide-in" src="{{ (resources.Get "images/ichika.png").Permalink }}" loading="eager" alt="">
+		<h1 class="font-display">oops ?</h1>
+		<p>
+		how did we get here ? <br>
+		<i class="surface-variant">yes this is a 404 error</i>
+		</p>
+		<a class="primary-button" href="{{ .Site.Home.RelPermalink }}">return to monke</a>
+	</div>
+{{ end }}

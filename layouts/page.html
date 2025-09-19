@@ -1,0 +1,17 @@
+{{ define "main" }}
+	<a href="../" class="surface-icon icon">
+		{{ (resources.Get "/icons/arrow_back.svg").Content | safeHTML }}
+	</a>
+	<h1 class="font-display">{{ .Title }}</h1>
+	{{ .Content }}
+	{{ if .IsTranslated }}
+<h4>{{ T "translations" }}</h4>
+<ul>
+  {{ range .Translations }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Language.Lang }}: {{ .LinkTitle }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

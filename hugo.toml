@@ -1,0 +1,39 @@
+languageCode = 'fr'
+title = "samuel's porfolio"
+baseUrl = "samferos.github.io/Samferos"
+
+defaultContentLanguage = 'fr'
+
+sectionPagesMenu = 'main'
+
+[languages]
+	[languages.fr]
+    languageCode = 'fr'
+    languageDirection = 'ltr'
+    languageName = 'Français'
+    title = 'le porfolio à samuel'
+    weight = 10
+	[languages.en]
+    languageCode = 'en'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    title = "samuel's porfolio"
+    weight = 5
+	[languages.pt-PT]
+    languageCode = 'pt-PT'
+    languageDirection = 'ltr'
+    languageName = 'Português'
+    title = "o porfolio do samuel"
+    weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+
+[module]
+	[[module.imports]]
+		path = "github.com/gohugoio/hugo-mod-jslibs/turbo/v8"
