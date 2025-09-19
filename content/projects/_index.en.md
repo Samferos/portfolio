@@ -1,6 +1,6 @@
 +++
 date = '2025-07-27T12:40:12+02:00'
-draft = true
+draft = false
 title = 'Projects'
 description = '''
 Stuff i did, am doing or planning on doing (and yes, everything is advertised
