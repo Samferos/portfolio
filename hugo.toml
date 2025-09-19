@@ -1,8 +1,11 @@
 languageCode = 'fr'
 title = "samuel's porfolio"
-baseUrl = "samferos.github.io/Samferos"
+baseUrl = "samferos.github.io/portfolio"
 
 defaultContentLanguage = 'fr'
+defaultContentLanguageInSubdir = false
+disableDefaultLanguageRedirect = false
+disableLanguages = []
 
 sectionPagesMenu = 'main'
 

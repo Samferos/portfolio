@@ -7,6 +7,6 @@
 */ -}}
 <menu>
 	{{ range . }}
-	{{- /* <li><a data-turbo="{{ or (try .turbo).Value "true" }}" href="{{ .link }}">{{ .label }}</a></li> */ -}}
+	<li><a data-turbo="{{ or (try .turbo).Value "true" }}" href="{{ .link }}">{{ .label }}</a></li>
 	{{ end }}
 </menu>
