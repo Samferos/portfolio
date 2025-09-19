@@ -1,6 +1,6 @@
 +++
 date = '2025-06-27T23:47:07+02:00'
-draft = true
+draft = false
 title = 'Les Films à Anby'
 status = "done"
 description = "Une application android utilisant le design Material 3 et une API Externe."
